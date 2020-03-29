@@ -1,0 +1,11 @@
+.overflow-auto {
+  max-width: 20vw;
+  max-height: 80vh;
+  list-style-type: none
+}
+
+.overflow-auto p {
+ padding: 0;
+ margin: 0 auto;
+ padding-right: 2em;
+}

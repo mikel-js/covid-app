@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Covid from './Covid'
 
 function App() {
