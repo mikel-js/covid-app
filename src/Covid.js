@@ -10,6 +10,7 @@ function Covid() {
   const [isAlphabetical, setSortAplhabetical] = useState(false)
   const [isAsc, setAsc] = useState(false)
   const [totalCases, setTotalCases] = useTotalState('cases');
+  const [totalRecovered, setTotalRecovered] = useTotalState('recovered');
   const [totalDeaths, setTotalDeath] = useTotalState('death');
 
   useEffect(() => {
@@ -17,6 +18,7 @@ function Covid() {
       await axios.get('https://services9.arcgis.com/N9p5hsImWXAccRNI/arcgis/rest/services/Nc2JKvYFoAEOFCG5JSI6/FeatureServer/2/query?f=json&where=1%3D1&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&orderByFields=Confirmed%20desc&resultOffset=0&resultRecordCount=190&cacheHint=true').then((resp) => {
         setStats(resp.data.features)
         setTotalCases(resp.data.features)
+        setTotalRecovered(resp.data.features)
         setTotalDeath(resp.data.features)
       }).catch(err => {
         console.log('error')
@@ -56,6 +58,7 @@ function Covid() {
             <Countries 
             stats={stats} 
             totalCases={totalCases} 
+            totalRecovered={totalRecovered} 
             totalDeaths={totalDeaths} 
             sortAZ={sortAZ} 
             isAlphabetical={isAlphabetical}

@@ -10,6 +10,11 @@ function useTotalState(initialVal) {
           accTotal + currTotal.attributes.Confirmed
         )
       }
+      else if (initialVal === 'recovered') {
+        return (
+          accTotal + currTotal.attributes.Recovered
+        )
+      }
       else if (initialVal === 'death') {
         return (
           accTotal + currTotal.attributes.Deaths
