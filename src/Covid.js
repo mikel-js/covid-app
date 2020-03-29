@@ -3,7 +3,7 @@ import axios from 'axios'
 import Countries from './Countries';
 import InfoPage from './InfoPage';
 import useTotalState from './hooks/useTotalState';
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Button } from 'react-bootstrap'
 
 function Covid() {
   const [stats, setStats] = useState([]);
@@ -21,13 +21,20 @@ function Covid() {
     } getData()
   }, [])
 
+  const sortAZ = () => {
+    const sorted = stats.sort((a, b) => {
+      return a.attributes.Country_Region > b.attributes.Country_Region ? 1 : -1;
+    });
+    setStats([...sorted])
+  }
+
 
   return (
-    <div className="App" style={{maxWidth: '80vw', margin: '5vh auto'}}>
+    <div className="App" style={{ maxWidth: '80vw', margin: '5vh auto' }}>
       <Container fluid>
         <Row>
-          <Col sm={4} style={{height: "100vh"}}>
-            <Countries stats={stats} totalCases={totalCases} totalDeaths={totalDeaths} />
+          <Col sm={4} style={{ height: "100vh" }}>
+            <Countries stats={stats} totalCases={totalCases} totalDeaths={totalDeaths} sortAZ={sortAZ} />
           </Col>
           <Col sm={8}>
             <InfoPage />

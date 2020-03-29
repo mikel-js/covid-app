@@ -17,8 +17,10 @@ function Prevention() {
         </Col>
         <Col sm>
           <img className='prevention-img' alt='stay_home' src={require('./images/stay-at-home.png')} />
+          <p>Whether you are healthy, or experiencing any of the symptoms, staying at home is advised. </p>
         </Col>
         <Col sm>
+        <p>Cover your mouth with your flexed elbow, or with a tissue whenever you cough or sneeze, this will prevent the spread of potential viruses.</p>
           <img className='prevention-img' alt='cover_mouth' src={require('./images/cough.png')} />
         </Col>
       </Row>
