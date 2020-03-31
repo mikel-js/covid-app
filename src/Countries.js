@@ -16,8 +16,8 @@ function Countries({ stats, totalCases, totalRecovered, totalDeaths, sortAZ, isA
         {!isAsc ? 'Ascending' : 'Descending'}
       </Button>
       <ul className="overflow-auto" id="style-15">
-        {stats ? stats.map((stat) => (
-          <li key={stat.attributes.OBJECTID}>{`${stat.attributes.Country_Region} : ${stat.attributes.Confirmed}`}</li>
+        {stats ? stats.map((stat, index) => (
+          <li key={stat.attributes.OBJECTID}>{`${index +1} ${stat.attributes.Country_Region} : ${stat.attributes.Confirmed}`}</li>
         )) : <p>Problem loading the data, please refresh after a while.</p>
         }
       </ul>

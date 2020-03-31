@@ -4,6 +4,7 @@ import Countries from './Countries';
 import InfoPage from './InfoPage';
 import useTotalState from './hooks/useTotalState';
 import { Container, Row, Col, Button } from 'react-bootstrap'
+import './Covid.css'
 
 function Covid() {
   const [stats, setStats] = useState([]);
@@ -51,7 +52,7 @@ function Covid() {
   }
 
   return (
-    <div className="App" style={{ maxWidth: '80vw', margin: '5vh auto' }}>
+    <div className="covid-main-container">
       <Container fluid>
         <Row>
           <Col sm={4} style={{ height: "100vh" }}>

@@ -1,3 +1,15 @@
+.prevention-column {
+  border: solid .5px #e6e6e6;
+  padding: 0;
+  margin: 10px
+}
+
 .prevention-img {
   width: 100% ;
+}
+
+.prevention-column p {
+  background-color: #e6e6e6;
+  margin: 0;
+  height: 150px
 }
