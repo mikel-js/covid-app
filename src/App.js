@@ -1,12 +1,11 @@
 import React from 'react';
-import Covid from './Covid';
-import Header from './Header'
+import CovidApp from './CovidApp';
+
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Covid />
+    <div>
+      <CovidApp />
     </div>
   );
 }

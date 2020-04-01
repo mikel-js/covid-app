@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import Countries from './Countries';
+import FactsTicker from './FactsTicker';
 import InfoPage from './InfoPage';
 import useTotalState from './hooks/useTotalState';
 import { Container, Row, Col, Button } from 'react-bootstrap'
@@ -29,7 +30,7 @@ function Covid() {
 
   const sortAZ = () => {
     const sorted = stats.sort((a, b) => {
-      if(isAlphabetical === false) {
+      if (isAlphabetical === false) {
         return a.attributes.Country_Region > b.attributes.Country_Region ? 1 : -1;
       } else {
         return a.attributes.Country_Region > b.attributes.Country_Region ? -1 : 1;
@@ -41,7 +42,7 @@ function Covid() {
 
   const sortAsc = () => {
     const sorted = stats.sort((a, b) => {
-      if(isAsc === false) {
+      if (isAsc === false) {
         return a.attributes.Confirmed > b.attributes.Confirmed ? 1 : -1;
       } else {
         return a.attributes.Confirmed > b.attributes.Confirmed ? -1 : 1;
@@ -54,17 +55,18 @@ function Covid() {
   return (
     <div className="covid-main-container">
       <Container fluid>
+        <FactsTicker />
         <Row>
           <Col sm={4} style={{ height: "100vh" }}>
-            <Countries 
-            stats={stats} 
-            totalCases={totalCases} 
-            totalRecovered={totalRecovered} 
-            totalDeaths={totalDeaths} 
-            sortAZ={sortAZ} 
-            isAlphabetical={isAlphabetical}
-            sortAsc={sortAsc}
-            isAsc={isAsc}
+            <Countries
+              stats={stats}
+              totalCases={totalCases}
+              totalRecovered={totalRecovered}
+              totalDeaths={totalDeaths}
+              sortAZ={sortAZ}
+              isAlphabetical={isAlphabetical}
+              sortAsc={sortAsc}
+              isAsc={isAsc}
             />
           </Col>
           <Col sm={8}>
