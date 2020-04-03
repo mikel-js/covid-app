@@ -5,7 +5,9 @@ import Ticker from 'react-ticker';
 function FactsTicker() {
     const updates = [
     { info: "COVID-19's outer layer is made up of lipids(fats), that's why washing with soap is best recommended, it dissolves the virus' protective layer. Way to go SOAP!" },
-    { info: "Antibiotics don't work on COVID, as it is caused by a corona virus" }
+    { info: "Antibiotics don't work on COVID, as it is caused by a virus." },
+    { info: "Alcohol or hand sanitizer should have atleast 60% concentration to be effective against COVID19." },
+    { info: 'Coronavirus comes from the latin word "corona", meaning crown. When look under a microscope, coronavirus have crown-like spikes on the surface' },
   ]
 
   const randomInfo = () => {
@@ -19,17 +21,13 @@ function FactsTicker() {
   return (
     <>
       <h3 style={{ color: 'black' }}>Did you know?</h3>
-<<<<<<< HEAD
-      <Ticker mode='await' speed={15} offset="run-in" style={{width: '100%', overflow: 'hidden'}}>
-=======
       <Ticker
         move={isMoving}
         mode='await'
         speed={15} >
->>>>>>> 10b73991197119a01cbee513d23bbaab2f0c255b
         {() => (
           <>
-            <h5 style={{ cursor: 'cell' }}
+            <h5 style={{ cursor: 'grab' }}
               onMouseOver={() => setIsMoving(false)}
               onMouseOut={() => setIsMoving(true)}
             >
