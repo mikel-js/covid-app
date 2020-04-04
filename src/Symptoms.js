@@ -1,11 +1,40 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import './Symptoms.css'
+import styled from 'styled-components';
 
+const SymptomsWrapper = styled.div`
+  Col {
+    margin: 2em
+  }
+  .symptoms-list {
+    list-style-type: none;
+  }
+  .symptoms-img {
+    width: 2em
+  }
+  .symptoms-common {
+    background-color: #cceeff;
+    margin: 1.5em
+  }
+  .symptoms-uncommon {
+    background-color: #e6b3ff
+  }
+  .symptoms-risk {
+    background-color: #ffad99;
+    margin: 1.5em
+  }
+  h4.symptoms-warning {
+    margin: 10px auto;
+  }
+  h6.symptoms-warning {
+    margin: 10px auto;
+  }
+
+`
 
 function Symptoms() {
   return (
-    <div>
+    <SymptomsWrapper>
       <h1>Symptoms of COVID-19</h1>
       <Row>
         <Col className='symptoms-common'>
@@ -29,8 +58,9 @@ function Symptoms() {
           <h5>Older people, people with other medical conditions like hypertension, diabetes or heart problems, are at higher risk of developing serious complications. </h5>
         </Col>
         <h4 className='symptoms-warning'>Seek medical advice when you have fever, cough and difficulty of breathing.</h4>
+        <h6 className='symptoms-warning'>You can find more information on where to find help in Finland @ <a href='https://thl.fi/en/web/infectious-diseases/what-s-new/coronavirus-covid-19-latest-updates' target='blank'>THL website.</a></h6>
       </Row>
-    </div>
+    </SymptomsWrapper>
   )
 }
 

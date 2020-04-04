@@ -26,7 +26,7 @@ const CovidWrapper = styled.div`
 
 function Covid() {
   const [stats, setStats] = useState([]);
-  const [search, setSearch] = useState("");
+  const [results, setResults] = useState([])
   const [isAlphabetical, setSortAplhabetical] = useState(false);
   const [isAsc, setAsc] = useState(false);
   const [totalCases, setTotalCases] = useTotalState('cases');
@@ -37,6 +37,7 @@ function Covid() {
     async function getData() {
       await axios.get('https://services9.arcgis.com/N9p5hsImWXAccRNI/arcgis/rest/services/Nc2JKvYFoAEOFCG5JSI6/FeatureServer/2/query?f=json&where=1%3D1&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&orderByFields=Confirmed%20desc&resultOffset=0&resultRecordCount=190&cacheHint=true').then((resp) => {
         setStats(resp.data.features)
+        setResults(resp.data.features)
         setTotalCases(resp.data.features)
         setTotalRecovered(resp.data.features)
         setTotalDeath(resp.data.features)
@@ -46,27 +47,34 @@ function Covid() {
     } getData()
   }, [])
 
+  const searchCountry = (e) => {
+    const filteredCountry = stats.filter((stat) => {
+      return stat.attributes.Country_Region.toLowerCase().includes(e.toLowerCase())
+    })
+    setResults(filteredCountry)
+  }
+
   const sortAZ = () => {
-    const sorted = stats.sort((a, b) => {
+    const sorted = results.sort((a, b) => {
       if (isAlphabetical === false) {
         return a.attributes.Country_Region > b.attributes.Country_Region ? 1 : -1;
       } else {
         return a.attributes.Country_Region > b.attributes.Country_Region ? -1 : 1;
       }
     });
-    setStats([...sorted])
+    setResults([...sorted])
     setSortAplhabetical(!isAlphabetical)
   }
 
   const sortAsc = () => {
-    const sorted = stats.sort((a, b) => {
+    const sorted = results.sort((a, b) => {
       if (isAsc === false) {
         return a.attributes.Confirmed > b.attributes.Confirmed ? 1 : -1;
       } else {
         return a.attributes.Confirmed > b.attributes.Confirmed ? -1 : 1;
       }
     });
-    setStats([...sorted])
+    setResults([...sorted])
     setAsc(!isAsc)
   }
 
@@ -81,18 +89,19 @@ function Covid() {
         <Row>
           <Col sm={12} md={12} lg={4} id='countries-stat'>
             <Countries
-              stats={stats}
+              results={results}
               totalCases={totalCases}
               totalRecovered={totalRecovered}
               totalDeaths={totalDeaths}
+              searchCountry={searchCountry}
               sortAZ={sortAZ}
               isAlphabetical={isAlphabetical}
               sortAsc={sortAsc}
-              isAsc={isAsc}
+              isAsc={isAsc} 
             />
           </Col>
           <Col sm="auto" md="auto" lg="8">
-              <InfoPage />
+            <InfoPage />
           </Col>
         </Row>
       </Container>

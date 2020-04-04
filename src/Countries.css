@@ -4,6 +4,11 @@
   margin: 2em
 }
 
+.countries-input {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
 .countries-sortButton {
   display: flex;
   justify-content: center;
@@ -66,6 +71,13 @@ Button {
  }
 }
 
+@media screen and (max-width: 1310px) {
+  .countries-input input {
+    width: 120px;
+    font-size: .7em
+  }
+}
+
 @media screen and (max-width: 1155px) {
  .overflow-auto {
    font-size: .6em;
@@ -78,5 +90,19 @@ Button {
 @media screen and (max-width: 990px) {
   .countries-content h1, .countries-content h4, .countries-content h5, .overflow-auto, .countries-sortButton .btn {
     font-size: 1em;
+  }
+  .countries-input input {
+    width: 180px;
+    font-size: 1em
+  }
+ }
+
+ @media screen and (max-width: 500px) {
+  .countries-content h1, .countries-content h4, .countries-content h5, .overflow-auto, .countries-sortButton .btn {
+    font-size: .8em;
+  }
+  .countries-input input {
+    width: 120px;
+    font-size: .8em
   }
  }

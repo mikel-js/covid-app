@@ -30,6 +30,16 @@ img {
 .footer-disclaimer p {
   text-align: center;
 }
+
+@media screen and (max-width: 500px) {
+  .footer-socmed, .footer-disclaimer  {
+    font-size: .8em
+  }
+
+  .footer-disclaimer p  {
+    margin: 0
+  }
+ }
 `
 
 function Footer() {

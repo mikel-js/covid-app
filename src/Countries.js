@@ -3,7 +3,7 @@ import './Countries.css';
 import { Button } from 'react-bootstrap'
 
 
-function Countries({ stats, totalCases, totalRecovered, totalDeaths, sortAZ, isAlphabetical, isAsc, sortAsc }) {
+function Countries({ results, totalCases, totalRecovered, totalDeaths, searchCountry, sortAZ, isAlphabetical, isAsc, sortAsc }) {
   return (
     <div className='countries-container'>
       <div className='countries-content'>
@@ -11,9 +11,15 @@ function Countries({ stats, totalCases, totalRecovered, totalDeaths, sortAZ, isA
         <h4>Total Recovered {totalRecovered}</h4>
         <h5>Total Deaths {totalDeaths} </h5>
       </div>
-      <input />
+      <div className='countries-input'>
+        <input
+          onChange={(e) => {
+            searchCountry(e.target.value)
+          }}
+          placeholder='Search countries'
+        />
+      </div>
       <div className='countries-sortButton'>
-      
         <Button variant="outline-info" onClick={sortAZ}>
           {!isAlphabetical ? 'Sort A-Z' : 'Sort Z-A'}
         </Button>
@@ -23,8 +29,8 @@ function Countries({ stats, totalCases, totalRecovered, totalDeaths, sortAZ, isA
       </div>
       <div className='countries-list'>
         <ul className="overflow-auto" id="style-15">
-          {stats ? stats.map((stat, index) => (
-            <li key={stat.attributes.OBJECTID}>{`${index + 1}. ${stat.attributes.Country_Region} : ${stat.attributes.Confirmed}`}</li>
+          {results ? results.map((result, index) => (
+            <li key={result.attributes.OBJECTID}>{`${index + 1}. ${result.attributes.Country_Region} : ${result.attributes.Confirmed}`}</li>
           )) : <p>Problem loading the data, please refresh after a while.</p>
           }
         </ul>
@@ -34,4 +40,3 @@ function Countries({ stats, totalCases, totalRecovered, totalDeaths, sortAZ, isA
 }
 
 export default Countries
-
