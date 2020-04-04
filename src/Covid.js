@@ -4,8 +4,25 @@ import Countries from './Countries';
 import FactsTicker from './FactsTicker';
 import InfoPage from './InfoPage';
 import useTotalState from './hooks/useTotalState';
-import { Container, Row, Col, Button } from 'react-bootstrap'
-import './Covid.css'
+import { Container, Row, Col } from 'react-bootstrap'
+import styled from 'styled-components';
+
+const CovidWrapper = styled.div`
+  background-color: white;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 5%;
+  width: 70vw;
+
+  @media screen and (max-width: 767px) {
+    h1.Covid-header {
+      font-size: 1.5em
+    }
+    h4.Covid-header {
+      font-size: 1.3em
+    }
+  }
+`
 
 function Covid() {
   const [stats, setStats] = useState([]);
@@ -53,11 +70,15 @@ function Covid() {
   }
 
   return (
-    <div className="covid-main-container">
+    <CovidWrapper>
       <Container fluid>
         <FactsTicker />
+        <div>
+          <h1 className='Covid-header'>What is COVID-19?</h1>
+          <h4 className='Covid-header'>COVID-19 is a highly contagious disease caused by a type of coronavirus. The outbreak of COVID-19 was first reported in December 2019, in Wuhan, China.</h4>
+        </div>
         <Row>
-          <Col sm={4} style={{ height: "100vh" }}>
+          <Col sm={12} md={6} lg={4} id='countries-stat'>
             <Countries
               stats={stats}
               totalCases={totalCases}
@@ -69,14 +90,12 @@ function Covid() {
               isAsc={isAsc}
             />
           </Col>
-          <Col sm={8}>
+          <Col sm={12} md={6} lg={8}>
             <InfoPage />
           </Col>
         </Row>
       </Container>
-
-
-    </div>
+    </CovidWrapper>
   );
 }
 

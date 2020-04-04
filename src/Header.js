@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 
 const HeaderWrapper = styled.header`
@@ -8,9 +8,9 @@ const HeaderWrapper = styled.header`
   color: white;
   display: flex;
   flex-direction: row;
-  background: #d31027; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #d31027, #ea384d); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #d31027, #ea384d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #d31027;
+  background: -webkit-linear-gradient(to right, #d31027, #ea384d); 
+  background: linear-gradient(to right, #d31027, #ea384d); 
   img {
     height: 15vh;
     width: 10vw;
@@ -25,6 +25,25 @@ const HeaderWrapper = styled.header`
     margin: auto 3em;
   }
 
+  @media screen and (max-width: 1155px) {
+   img {
+    width: 15vw;
+    height: 12vh
+   }
+   }
+   @media screen and (max-width: 767px) {
+    height: 8vh;
+    img {
+       height: 10vh
+     }
+    h3 {
+      font-size: 1.3em
+    }
+  @media screen and (max-width: 528px) {
+      h3 {
+        font-size: .9em
+      }
+    }
 `
 
 function Header() {

@@ -6,8 +6,6 @@ import './Symptoms.css'
 function Symptoms() {
   return (
     <div>
-      <h1>What is COVID-19?</h1>
-      <h4>COVID-19 is a highly contagious disease caused by a type of coronavirus. The outbreak of COVID-19 was first reported in December 2019, in Wuhan, China.</h4>
       <h1>Symptoms of COVID-19</h1>
       <Row>
         <Col className='symptoms-common'>
