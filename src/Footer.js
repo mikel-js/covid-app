@@ -55,7 +55,7 @@ function Footer() {
         </a>
       </div>
       <div className='footer-disclaimer'>
-        <p>I used WHO website as my main source of information. I made sure that the information are correct and accurate.</p>
+        <p>All information are based on reliable sources, mainly from WHO website. COVID-19 cases is from CSSE @ John Hopkins University.</p>
         <p>©:Michael Castro 2020</p>
       </div>
 

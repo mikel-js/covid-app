@@ -106,3 +106,23 @@ Button {
     font-size: .8em
   }
  }
+
+ @media screen and (max-width: 500px) {
+  .countries-content h1, .countries-content h4, .countries-content h5, .overflow-auto, .countries-sortButton .btn {
+    font-size: .8em;
+  }
+  .countries-input input {
+    width: 120px;
+    font-size: .8em
+  }
+ }
+
+ @media screen and (max-width: 350px) {
+  .countries-sortButton .btn {
+    font-size: .4em;
+  }
+  .countries-input input {
+    width: 90px;
+    font-size: .6em
+  }
+ }
