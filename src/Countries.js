@@ -11,7 +11,9 @@ function Countries({ stats, totalCases, totalRecovered, totalDeaths, sortAZ, isA
         <h4>Total Recovered {totalRecovered}</h4>
         <h5>Total Deaths {totalDeaths} </h5>
       </div>
+      <input />
       <div className='countries-sortButton'>
+      
         <Button variant="outline-info" onClick={sortAZ}>
           {!isAlphabetical ? 'Sort A-Z' : 'Sort Z-A'}
         </Button>

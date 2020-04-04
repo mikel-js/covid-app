@@ -1,15 +1,20 @@
 import React from 'react';
 import Covid from './Covid';
 import Header from './Header';
-import Footer from './Footer'
+import Footer from './Footer';
+import styled from 'styled-components';
+
+const CovidAppWrapper = styled.div`
+  width: 100vw
+`
 
 function CovidApp() {
   return (
-    <div>
+    <CovidAppWrapper className='Covid-app'>
       <Header />
       <Covid />
       <Footer />
-    </div>
+    </CovidAppWrapper>
   );
 }
 

@@ -26,8 +26,9 @@ const CovidWrapper = styled.div`
 
 function Covid() {
   const [stats, setStats] = useState([]);
-  const [isAlphabetical, setSortAplhabetical] = useState(false)
-  const [isAsc, setAsc] = useState(false)
+  const [search, setSearch] = useState("");
+  const [isAlphabetical, setSortAplhabetical] = useState(false);
+  const [isAsc, setAsc] = useState(false);
   const [totalCases, setTotalCases] = useTotalState('cases');
   const [totalRecovered, setTotalRecovered] = useTotalState('recovered');
   const [totalDeaths, setTotalDeath] = useTotalState('death');
@@ -78,7 +79,7 @@ function Covid() {
           <h4 className='Covid-header'>COVID-19 is a highly contagious disease caused by a type of coronavirus. The outbreak of COVID-19 was first reported in December 2019, in Wuhan, China.</h4>
         </div>
         <Row>
-          <Col sm={12} md={6} lg={4} id='countries-stat'>
+          <Col sm={12} md={12} lg={4} id='countries-stat'>
             <Countries
               stats={stats}
               totalCases={totalCases}
@@ -90,8 +91,8 @@ function Covid() {
               isAsc={isAsc}
             />
           </Col>
-          <Col sm={12} md={6} lg={8}>
-            <InfoPage />
+          <Col sm="auto" md="auto" lg="8">
+              <InfoPage />
           </Col>
         </Row>
       </Container>

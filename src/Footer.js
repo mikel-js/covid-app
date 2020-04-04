@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const FooterWrapper = styled.footer`
+width: 100vw;
 display: flex;
 background: #d31027;
 background: -webkit-linear-gradient(to right, #d31027, #ea384d); 
