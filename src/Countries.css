@@ -105,15 +105,9 @@ Button {
     width: 120px;
     font-size: .8em
   }
- }
 
- @media screen and (max-width: 500px) {
-  .countries-content h1, .countries-content h4, .countries-content h5, .overflow-auto, .countries-sortButton .btn {
-    font-size: .8em;
-  }
-  .countries-input input {
-    width: 120px;
-    font-size: .8em
+  .countries-details {
+    font-size: .7em
   }
  }
 

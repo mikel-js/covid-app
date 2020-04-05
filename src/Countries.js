@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Countries.css';
-import { Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap';
+import DetailsModal from './DetailsModal';
 
 
 function Countries({ results, totalCases, totalRecovered, totalDeaths, searchCountry, sortAZ, isAlphabetical, isAsc, sortAsc }) {
+  // const [toggle, setToggle] = useState(false);
+  // const showDetails=(res)=> {
+
+  //     alert(res.Deaths)
+
+  // }
+
+  const [show, setShow] = useState(false);
+  const [country, setCountry] = useState([])
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const showDetails = (res) => {
+    setCountry(res)
+    handleShow()
+  }
   return (
     <div className='countries-container'>
       <div className='countries-content'>
@@ -28,11 +46,23 @@ function Countries({ results, totalCases, totalRecovered, totalDeaths, searchCou
         </Button>
       </div>
       <div className='countries-list'>
+      <p className='countries-details'>Click country name to show more details</p>
         <ul className="overflow-auto" id="style-15">
-          {results ? results.map((result, index) => (
-            <li key={result.attributes.OBJECTID}>{`${index + 1}. ${result.attributes.Country_Region} : ${result.attributes.Confirmed}`}</li>
-          )) : <p>Problem loading the data, please refresh after a while.</p>
+          {results ? (results.map((result, index) => (
+            <li 
+            key={result.attributes.OBJECTID} 
+            onClick={() => {
+              showDetails(result)
+            }}
+            style={{cursor: 'pointer'}}
+            >{`${index + 1}. ${result.attributes.Country_Region} : ${result.attributes.Confirmed}`}</li>
+          ))) : <p>Problem loading the data, please refresh after a while.</p>
           }
+          <DetailsModal
+            show={show}
+            handleClose={handleClose}
+            country={country.attributes}
+          />
         </ul>
       </div>
     </div>
