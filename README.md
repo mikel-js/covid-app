@@ -6,3 +6,5 @@ I was affected by the COVID-19 pandemic, as I am actively searching for a web de
 
 #### Technologies used
 I used HTML, CSS, React, Hooks, React-bootstrap. I got the data from CSSE @ John Hopkins University.
+
+#### I hosted the APP with its own domain name @ http://www.breakingcovid19.com/. Feel free to visit and enjoy!
