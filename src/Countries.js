@@ -5,17 +5,13 @@ import DetailsModal from './DetailsModal';
 
 
 function Countries({ results, totalCases, totalRecovered, totalDeaths, searchCountry, sortAZ, isAlphabetical, isAsc, sortAsc }) {
-  // const [toggle, setToggle] = useState(false);
-  // const showDetails=(res)=> {
-
-  //     alert(res.Deaths)
-
-  // }
-
   const [show, setShow] = useState(false);
   const [country, setCountry] = useState([])
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false)
+    window.location.reload(false);
+  };
   const handleShow = () => setShow(true);
 
   const showDetails = (res) => {
@@ -46,15 +42,15 @@ function Countries({ results, totalCases, totalRecovered, totalDeaths, searchCou
         </Button>
       </div>
       <div className='countries-list'>
-      <p className='countries-details'>Click country name to show more details</p>
+        <p className='countries-details'>Click country name to show more details</p>
         <ul className="overflow-auto" id="style-15">
           {results ? (results.map((result, index) => (
-            <li 
-            key={result.attributes.OBJECTID} 
-            onClick={() => {
-              showDetails(result)
-            }}
-            style={{cursor: 'pointer'}}
+            <li
+              key={result.attributes.OBJECTID}
+              onClick={() => {
+                showDetails(result)
+              }}
+              style={{ cursor: 'pointer' }}
             >{`${index + 1}. ${result.attributes.Country_Region} : ${result.attributes.Confirmed}`}</li>
           ))) : <p>Problem loading the data, please refresh after a while.</p>
           }
