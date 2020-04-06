@@ -27,6 +27,7 @@ const CovidWrapper = styled.div`
 function Covid() {
   const [stats, setStats] = useState([]);
   const [results, setResults] = useState([])
+  const [update, setUpdate] = useState()
   const [isAlphabetical, setSortAplhabetical] = useState(false);
   const [isAsc, setAsc] = useState(false);
   const [totalCases, setTotalCases] = useTotalState('cases');
@@ -41,6 +42,7 @@ function Covid() {
         setTotalCases(resp.data.features)
         setTotalRecovered(resp.data.features)
         setTotalDeath(resp.data.features)
+        setUpdate(resp.data.features[0].attributes.Last_Update)
       }).catch(err => {
         console.log('error')
       })
@@ -98,6 +100,7 @@ function Covid() {
               isAlphabetical={isAlphabetical}
               sortAsc={sortAsc}
               isAsc={isAsc} 
+              update={update}
             />
           </Col>
           <Col sm="auto" md="auto" lg="8">

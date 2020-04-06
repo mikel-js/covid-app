@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import Moment from 'react-moment';
 import './Countries.css';
 import { Button } from 'react-bootstrap';
 import DetailsModal from './DetailsModal';
 
 
-function Countries({ results, totalCases, totalRecovered, totalDeaths, searchCountry, sortAZ, isAlphabetical, isAsc, sortAsc }) {
+function Countries({ results, totalCases, totalRecovered, totalDeaths, update, searchCountry, sortAZ, isAlphabetical, isAsc, sortAsc }) {
   const [show, setShow] = useState(false);
   const [country, setCountry] = useState([])
+  
 
-  const handleClose = () => {
+  const handleClose = (e) => {
     setShow(false)
     window.location.reload(false);
   };
@@ -18,12 +20,14 @@ function Countries({ results, totalCases, totalRecovered, totalDeaths, searchCou
     setCountry(res)
     handleShow()
   }
+  
   return (
     <div className='countries-container'>
       <div className='countries-content'>
         <h1>Total Cases {totalCases}</h1>
         <h4>Total Recovered {totalRecovered}</h4>
         <h5>Total Deaths {totalDeaths} </h5>
+        <h5>Last updated: <Moment unix>{update/1000}</Moment></h5>
       </div>
       <div className='countries-input'>
         <input
