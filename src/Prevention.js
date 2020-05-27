@@ -6,7 +6,7 @@ function Prevention() {
   return (
     <Container>
       <h2>Protect yourself!</h2>
-      <Row>
+      <Row className='prevention-row'>
         <Col sm={6} md={6} lg={3} className='prevention-column'>
           <img className='prevention-img' alt='handwash' src={require('./images/handwash.png')} />
           <p>Wash your hands regularly and thouroughly with soap or alcohol. Soap and alcohol can kill viruses, including coronavirus. </p>

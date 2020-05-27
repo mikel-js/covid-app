@@ -31,6 +31,19 @@ img {
   text-align: center;
 }
 
+@media screen and (max-width: 800px) {
+  height: 18vh;
+  
+  .footer-socmed, .footer-disclaimer  {
+    font-size: .8em;
+   
+  }
+  
+  .footer-disclaimer p  {
+    margin: 0
+  }
+ }
+
 @media screen and (max-width: 500px) {
   .footer-socmed, .footer-disclaimer  {
     font-size: .8em
