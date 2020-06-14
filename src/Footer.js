@@ -31,7 +31,7 @@ img {
   text-align: center;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 840px) {
   height: 18vh;
   
   .footer-socmed, .footer-disclaimer  {
